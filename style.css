@@ -3,20 +3,18 @@
 }
 
 :root {
-  --bg: #f5f7fb;
-  --card: #ffffff;
+  --bg: #f4f7fb;
+  --panel: #ffffff;
   --text: #1f2937;
   --muted: #6b7280;
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
-  --secondary-bg: #e8efff;
-  --nav-bg: #ffffff;
+  --secondary: #e8efff;
   --border: #d1d5db;
-  --good: #047857;
-  --warn: #b45309;
-  --bad: #b91c1c;
-  --danger-bg: #fee2e2;
-  --shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  --success: #047857;
+  --warning: #b45309;
+  --danger: #b91c1c;
+  --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
   --radius: 18px;
 }
 
@@ -29,59 +27,71 @@ body {
 }
 
 .container {
-  width: min(1180px, 92%);
+  width: min(1160px, 92%);
   margin: 0 auto;
 }
 
 .hero {
   background: linear-gradient(135deg, #0f172a, #1d4ed8);
-  color: white;
-  padding: 46px 0 32px;
+  color: #fff;
+  padding: 44px 0 30px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 22px;
   align-items: center;
 }
 
 .hero h1 {
   margin: 0 0 10px;
-  font-size: 42px;
+  font-size: 40px;
 }
 
-.hero-subtitle {
+.hero p {
+  margin: 0 0 12px;
   font-size: 17px;
-  margin-bottom: 16px;
 }
 
 .hero-card {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: var(--radius);
   padding: 22px;
-  backdrop-filter: blur(8px);
 }
 
-.small-text {
+.small-note {
   font-size: 13px;
-  opacity: 0.9;
+  opacity: .95;
 }
 
-.navbar {
+.hero-actions,
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.actions.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.top-nav {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--nav-bg);
-  border-bottom: 1px solid var(--border);
 }
 
 .nav-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   padding: 14px 0;
 }
 
@@ -96,7 +106,40 @@ body {
   flex-wrap: wrap;
 }
 
-.main-content {
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.secondary {
+  background: var(--secondary);
+  color: var(--primary-dark);
+}
+
+.danger {
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.nav-btn {
+  background: #eef2f7;
+  color: #111827;
+}
+
+.app-shell {
   padding: 28px 0 42px;
 }
 
@@ -108,12 +151,12 @@ body {
   display: block;
 }
 
-.section-header {
-  margin-bottom: 18px;
+.section-head {
+  margin-bottom: 16px;
 }
 
-.section-header h2 {
-  margin: 0 0 6px;
+.section-head h2 {
+  margin-bottom: 6px;
 }
 
 .grid {
@@ -121,59 +164,28 @@ body {
   gap: 18px;
 }
 
-.two-col {
+.grid.two {
   grid-template-columns: 1fr 1fr;
 }
 
-.three-col {
+.grid.three {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.card {
-  background: var(--card);
+.card,
+.tool-card,
+.form-card {
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px;
   box-shadow: var(--shadow);
-}
-
-.small-card h4 {
-  margin-top: 0;
-}
-
-.tool-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-}
-
-.tool-card h3 {
-  margin-top: 0;
-}
-
-.tool-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 12px 0;
-}
-
-.tag {
-  display: inline-block;
-  padding: 6px 10px;
-  background: #eef4ff;
-  color: #1d4ed8;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
 }
 
 .progress-bar {
   height: 12px;
-  border-radius: 999px;
   background: #e5e7eb;
+  border-radius: 999px;
   overflow: hidden;
   margin: 12px 0 8px;
 }
@@ -185,66 +197,27 @@ body {
   transition: width 0.3s ease;
 }
 
-.status-list {
+.checklist {
   display: grid;
   gap: 10px;
   margin-top: 14px;
 }
 
-.muted {
-  color: var(--muted);
-}
-
-.btn {
-  border: none;
-  border-radius: 12px;
-  padding: 11px 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-}
-
-.btn-primary {
-  background: var(--primary);
-  color: white;
-}
-
-.btn-secondary {
-  background: var(--secondary-bg);
-  color: var(--primary-dark);
-}
-
-.btn-nav {
-  background: #eef2f7;
-  color: #111827;
-}
-
-.btn-danger {
-  background: var(--danger-bg);
-  color: #991b1b;
-}
-
-.actions {
+.tool-tags {
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 16px;
+  gap: 8px;
+  margin: 12px 0;
 }
 
-.action-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
+.tag {
+  display: inline-block;
+  background: #eef4ff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
 }
 
 textarea,
@@ -255,18 +228,14 @@ input[type="number"] {
   border: 1px solid var(--border);
   border-radius: 12px;
   font-size: 14px;
+  margin-top: 6px;
 }
 
-.survey-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
+.form-card {
   margin-bottom: 18px;
 }
 
-.survey-card h3 {
+.form-card h3 {
   margin-top: 0;
 }
 
@@ -280,15 +249,14 @@ input[type="number"] {
 }
 
 .radio-row,
-.checkbox-row,
-.choice-row {
+.inline-row {
   display: flex;
-  flex-wrap: wrap;
   gap: 12px;
+  flex-wrap: wrap;
   margin-top: 8px;
 }
 
-.result-box {
+.result {
   margin-top: 18px;
   padding: 16px;
   border-radius: 14px;
@@ -307,15 +275,15 @@ input[type="number"] {
 }
 
 .good {
-  color: var(--good);
+  color: var(--success);
 }
 
 .warn {
-  color: var(--warn);
+  color: var(--warning);
 }
 
 .bad {
-  color: var(--bad);
+  color: var(--danger);
 }
 
 pre {
@@ -330,7 +298,7 @@ pre {
 }
 
 .footer {
-  background: white;
+  background: #fff;
   border-top: 1px solid var(--border);
   padding: 18px 0;
   color: var(--muted);
@@ -338,8 +306,8 @@ pre {
 
 @media (max-width: 900px) {
   .hero-grid,
-  .two-col,
-  .three-col {
+  .grid.two,
+  .grid.three {
     grid-template-columns: 1fr;
   }
 
@@ -349,6 +317,6 @@ pre {
   }
 
   .hero h1 {
-    font-size: 34px;
+    font-size: 32px;
   }
 }
