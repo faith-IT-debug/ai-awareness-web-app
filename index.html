@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Awareness Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>AI Tools for Learning</h1>
+    <p>Explore, Learn, and Use AI Responsibly</p>
+</header>
+
+<nav>
+    <button onclick="showSection('tools')">AI Tools</button>
+    <button onclick="showSection('tutorials')">Tutorials</button>
+    <button onclick="showSection('ethics')">Ethics</button>
+    <button onclick="showSection('practice')">Practice</button>
+</nav>
+
+<section id="tools" class="active">
+    <h2>AI Tools</h2>
+    <ul>
+        <li><b>ChatGPT</b> – Writing, explanations, study help</li>
+        <li><b>Grammarly</b> – Grammar checking</li>
+        <li><b>Copilot</b> – Coding assistant</li>
+    </ul>
+</section>
+
+<section id="tutorials">
+    <h2>How to Use AI Tools</h2>
+    <p>Example Prompt:</p>
+    <div class="box">
+        "Explain photosynthesis in simple terms"
+    </div>
+</section>
+
+<section id="ethics">
+    <h2>Ethical Use of AI</h2>
+    <ul>
+        <li>Always verify AI outputs</li>
+        <li>Do not copy-paste blindly</li>
+        <li>Respect academic integrity</li>
+    </ul>
+</section>
+
+<section id="practice">
+    <h2>Practice AI Prompting</h2>
+    <input type="text" id="promptInput" placeholder="Type your prompt...">
+    <button onclick="simulateAI()">Generate</button>
+    <div id="output"></div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
