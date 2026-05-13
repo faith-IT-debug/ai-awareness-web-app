@@ -159,10 +159,6 @@ button:hover {
   margin-bottom: 16px;
 }
 
-.section-head h2 {
-  margin-bottom: 6px;
-}
-
 .grid {
   display: grid;
   gap: 18px;
@@ -255,10 +251,6 @@ select {
   color: var(--success);
 }
 
-.warn {
-  color: var(--warning);
-}
-
 .bad {
   color: var(--danger);
 }
@@ -288,6 +280,7 @@ pre {
 }
 
 @media (max-width: 900px) {
+
   .hero-grid,
   .grid.two,
   .grid.three {
@@ -297,4 +290,5 @@ pre {
   .hero h1 {
     font-size: 32px;
   }
+
 }
