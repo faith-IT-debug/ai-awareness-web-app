@@ -1,3 +1,7 @@
+/* ========================= */
+/* style.css */
+/* ========================= */
+
 * {
   box-sizing: border-box;
 }
@@ -33,7 +37,7 @@ body {
 
 .hero {
   background: linear-gradient(135deg, #0f172a, #1d4ed8);
-  color: #fff;
+  color: white;
   padding: 44px 0 30px;
 }
 
@@ -173,8 +177,7 @@ button:hover {
 }
 
 .card,
-.tool-card,
-.form-card {
+.tool-card {
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -221,39 +224,13 @@ button:hover {
 }
 
 textarea,
-input[type="text"],
-input[type="number"] {
+select {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid var(--border);
   border-radius: 12px;
   font-size: 14px;
   margin-top: 6px;
-}
-
-.form-card {
-  margin-bottom: 18px;
-}
-
-.form-card h3 {
-  margin-top: 0;
-}
-
-.scale-item {
-  padding: 12px 0;
-  border-bottom: 1px solid #edf2f7;
-}
-
-.scale-item:last-child {
-  border-bottom: none;
-}
-
-.radio-row,
-.inline-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 8px;
 }
 
 .result {
@@ -286,6 +263,14 @@ input[type="number"] {
   color: var(--danger);
 }
 
+.recommend-card {
+  background: #f8fbff;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 14px;
+}
+
 pre {
   background: #0f172a;
   color: #e5e7eb;
@@ -293,12 +278,10 @@ pre {
   border-radius: 14px;
   overflow: auto;
   min-height: 260px;
-  white-space: pre-wrap;
-  word-break: break-word;
 }
 
 .footer {
-  background: #fff;
+  background: white;
   border-top: 1px solid var(--border);
   padding: 18px 0;
   color: var(--muted);
@@ -309,11 +292,6 @@ pre {
   .grid.two,
   .grid.three {
     grid-template-columns: 1fr;
-  }
-
-  .nav-wrap {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .hero h1 {
