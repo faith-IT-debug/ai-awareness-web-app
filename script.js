@@ -12,32 +12,33 @@ const state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
 };
 
 const aiTools = [
+
   {
     id: "chatgpt",
     name: "ChatGPT",
     category: "Writing / Research",
-    description: "AI assistant for writing, summarization, brainstorming, and explanations."
+    description: "AI assistant for writing, brainstorming, summarization, and explanations."
   },
 
   {
     id: "grammarly",
     name: "Grammarly",
     category: "Writing Support",
-    description: "AI writing assistant for grammar, clarity, and proofreading."
+    description: "AI tool for grammar checking and writing improvement."
   },
 
   {
     id: "copilot",
     name: "GitHub Copilot",
     category: "Programming",
-    description: "AI coding assistant for programming support and debugging."
+    description: "AI coding assistant for programming support."
   },
 
   {
     id: "canva",
     name: "Canva AI",
     category: "Presentation / Design",
-    description: "AI-powered design and presentation support."
+    description: "AI-supported visual presentation and design tool."
   },
 
   {
@@ -45,46 +46,40 @@ const aiTools = [
     name: "Google Gemini",
     category: "Research / Brainstorming",
     description: "AI assistant for idea generation and research support."
-  },
-
-  {
-    id: "notebooklm",
-    name: "NotebookLM",
-    category: "Reviewing / Notes",
-    description: "AI note and summarization tool."
   }
+
 ];
 
 const recommendationMap = {
 
   writing: {
     tools: ["ChatGPT", "Grammarly"],
-    reason: "Useful for writing, grammar checking, outlining, and drafting."
+    reason: "Useful for writing, outlining, and grammar correction."
   },
 
   research: {
-    tools: ["ChatGPT", "Gemini", "NotebookLM"],
-    reason: "Useful for summarization, explanation, and literature support."
+    tools: ["ChatGPT", "Gemini"],
+    reason: "Useful for summarization and research support."
   },
 
   presentation: {
     tools: ["Canva AI", "ChatGPT"],
-    reason: "Useful for slide creation, visual communication, and content drafting."
+    reason: "Useful for presentations and visual design."
   },
 
   coding: {
     tools: ["GitHub Copilot", "ChatGPT"],
-    reason: "Useful for programming assistance and debugging."
+    reason: "Useful for programming and debugging."
   },
 
   study: {
-    tools: ["NotebookLM", "ChatGPT"],
-    reason: "Useful for reviewers, summaries, and study guides."
+    tools: ["ChatGPT"],
+    reason: "Useful for study guides and reviewers."
   },
 
   brainstorm: {
     tools: ["ChatGPT", "Gemini"],
-    reason: "Useful for generating ideas and organizing concepts."
+    reason: "Useful for brainstorming and idea generation."
   }
 
 };
@@ -92,12 +87,12 @@ const recommendationMap = {
 const quizQuestions = [
 
   {
-    question: "Why is verifying AI-generated content important?",
+    question: "Why is verifying AI-generated information important?",
     options: [
       "AI is always accurate",
       "AI may generate inaccurate information",
-      "AI should never be used",
-      "Verification is unnecessary"
+      "Verification is unnecessary",
+      "AI tools cannot be used in education"
     ],
     answer: 1
   },
@@ -105,10 +100,10 @@ const quizQuestions = [
   {
     question: "Which is responsible AI usage?",
     options: [
-      "Submitting raw AI answers",
+      "Submitting raw AI outputs",
       "Using AI ethically and verifying outputs",
-      "Copy-pasting answers",
-      "Avoiding all citations"
+      "Copy-pasting without editing",
+      "Avoiding citations"
     ],
     answer: 1
   }
@@ -116,12 +111,19 @@ const quizQuestions = [
 ];
 
 function saveState() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(state)
+  );
+
   updateDashboard();
   updatePreview();
+
 }
 
 function showPage(id) {
+
   document.querySelectorAll(".page").forEach(page => {
     page.classList.remove("active");
   });
@@ -132,6 +134,7 @@ function showPage(id) {
     top: 0,
     behavior: "smooth"
   });
+
 }
 
 function setupNavigation() {
@@ -223,6 +226,7 @@ function generateRecommendation() {
     `;
 
     return;
+
   }
 
   const recommendation = recommendationMap[task];
@@ -230,7 +234,7 @@ function generateRecommendation() {
   let learningAdvice = "";
 
   if (style === "simple") {
-    learningAdvice = "Use prompts asking for simplified explanations.";
+    learningAdvice = "Use prompts requesting simplified explanations.";
   }
 
   if (style === "visual") {
@@ -269,7 +273,7 @@ function generateRecommendation() {
 
       <p>
         <strong>Responsible AI Reminder:</strong>
-        Always verify AI-generated outputs before using them academically.
+        Always verify AI-generated outputs before academic use.
       </p>
 
     </div>
@@ -330,9 +334,14 @@ function gradeQuiz() {
 
   quizQuestions.forEach((q, index) => {
 
-    const checked = document.querySelector(`input[name="quiz_${index}"]:checked`);
+    const checked = document.querySelector(
+      `input[name="quiz_${index}"]:checked`
+    );
 
-    if (checked && Number(checked.value) === q.answer) {
+    if (
+      checked &&
+      Number(checked.value) === q.answer
+    ) {
       score++;
     }
 
@@ -343,7 +352,9 @@ function gradeQuiz() {
   result.classList.remove("hidden");
 
   result.innerHTML = `
-    <p class="score good">${score}/${quizQuestions.length}</p>
+    <p class="score good">
+      ${score}/${quizQuestions.length}
+    </p>
 
     <p>
       You completed the AI literacy self-test.
@@ -411,13 +422,17 @@ function updateDashboard() {
   document.getElementById("donePractice").checked = checks.practice;
   document.getElementById("doneRecommend").checked = checks.recommendation;
 
-  const complete = Object.values(checks).filter(Boolean).length;
+  const complete =
+    Object.values(checks).filter(Boolean).length;
 
-  const percent = Math.round((complete / 4) * 100);
+  const percent =
+    Math.round((complete / 4) * 100);
 
-  document.getElementById("progressFill").style.width = `${percent}%`;
+  document.getElementById("progressFill").style.width =
+    `${percent}%`;
 
-  document.getElementById("progressText").textContent = `${percent}% complete`;
+  document.getElementById("progressText").textContent =
+    `${percent}% complete`;
 
 }
 
@@ -467,7 +482,9 @@ function bindButtons() {
     .getElementById("resetData")
     .addEventListener("click", () => {
 
-      const confirmReset = confirm("Reset all saved data?");
+      const confirmReset = confirm(
+        "Reset all saved data?"
+      );
 
       if (!confirmReset) return;
 
