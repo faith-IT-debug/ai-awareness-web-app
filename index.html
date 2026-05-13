@@ -1,390 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>
-    AI Learning Tool Adoption and Recommendation System
-  </title>
-
+  <title>AI Learning Tool Adoption and Recommendation System</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>AI Learning Tool Adoption and Recommendation System</h1>
+      <p>
+        A web-based educational platform designed to improve awareness,
+        responsible usage, and adoption of AI learning tools among students.
+      </p>
+      <p>
+        The system includes AI literacy modules, Pre-Test and Post-Test Likert-scale surveys,
+        AI tool recommendations, self-assessment, and prompt practice.
+      </p>
 
-  <header class="hero">
-
-    <div class="container hero-grid">
-
-      <div>
-
-        <h1>
-          AI Learning Tool Adoption and Recommendation System
-        </h1>
-
-        <p>
-          A web-based educational platform designed to improve awareness,
-          responsible usage, and adoption of AI learning tools among students.
-        </p>
-
-        <p>
-          The system includes AI literacy modules, recommendation features,
-          self-assessment activities, and prompt practice exercises.
-        </p>
-
-        <div class="hero-actions">
-
-          <button class="primary nav-btn" data-target="dashboard">
-            Open Dashboard
-          </button>
-
-          <button class="secondary nav-btn" data-target="recommendation">
-            Start Recommendation
-          </button>
-
-        </div>
-
+      <div class="hero-actions">
+        <button class="primary nav-btn" data-target="dashboard">Open Dashboard</button>
+        <button class="secondary nav-btn" data-target="pretest">Start Pre-Test</button>
       </div>
-
-      <div class="hero-card">
-
-        <h3>System Features</h3>
-
-        <ol>
-          <li>AI Tool Awareness</li>
-          <li>AI Tool Recommendation Engine</li>
-          <li>AI Literacy Self-Test</li>
-          <li>Prompt Practice</li>
-          <li>Responsible AI Guidance</li>
-        </ol>
-
-        <p class="small-note">
-          Developed using ADDIE, Waterfall SDLC, and TAM integration.
-        </p>
-
-      </div>
-
     </div>
 
-  </header>
+    <div class="hero-card">
+      <h3>System Flow</h3>
+      <ol>
+        <li>Answer the Pre-Test Survey</li>
+        <li>Explore AI Learning Tools</li>
+        <li>Use the AI Recommender</li>
+        <li>Practice Prompt Writing</li>
+        <li>Answer the Post-Test Survey</li>
+      </ol>
+      <p class="small-note">
+        Developed using ADDIE, Waterfall SDLC, and TAM integration.
+      </p>
+    </div>
+  </div>
+</header>
 
-  <nav class="top-nav">
+<nav class="top-nav">
+  <div class="container nav-wrap">
+    <div class="brand">AI Learning Tool System</div>
 
-    <div class="container nav-wrap">
+    <div class="nav-links">
+      <button class="nav-btn" data-target="dashboard">Dashboard</button>
+      <button class="nav-btn" data-target="pretest">Pre-Test</button>
+      <button class="nav-btn" data-target="tools">AI Tools</button>
+      <button class="nav-btn" data-target="recommendation">Recommender</button>
+      <button class="nav-btn" data-target="quiz">Self-Test</button>
+      <button class="nav-btn" data-target="practice">Prompt Practice</button>
+      <button class="nav-btn" data-target="posttest">Post-Test</button>
+      <button class="nav-btn" data-target="export">Export</button>
+    </div>
+  </div>
+</nav>
 
-      <div class="brand">
-        AI Learning Tool System
-      </div>
+<main class="container app-shell">
 
-      <div class="nav-links">
-
-        <button class="nav-btn" data-target="dashboard">
-          Dashboard
-        </button>
-
-        <button class="nav-btn" data-target="tools">
-          AI Tools
-        </button>
-
-        <button class="nav-btn" data-target="recommendation">
-          Recommender
-        </button>
-
-        <button class="nav-btn" data-target="quiz">
-          Self-Test
-        </button>
-
-        <button class="nav-btn" data-target="practice">
-          Prompt Practice
-        </button>
-
-        <button class="nav-btn" data-target="export">
-          Export
-        </button>
-
-      </div>
-
+  <section id="dashboard" class="page active">
+    <div class="section-head">
+      <h2>Dashboard</h2>
+      <p>Track your AI awareness activities and survey progress.</p>
     </div>
 
-  </nav>
+    <div class="grid two">
+      <div class="card">
+        <h3>Progress Tracker</h3>
 
-  <main class="container app-shell">
-
-    <!-- DASHBOARD -->
-
-    <section id="dashboard" class="page active">
-
-      <div class="section-head">
-        <h2>Dashboard</h2>
-        <p>Track your AI awareness activities and learning progress.</p>
-      </div>
-
-      <div class="grid two">
-
-        <div class="card">
-
-          <h3>Progress Tracker</h3>
-
-          <div class="progress-bar">
-            <div id="progressFill" class="progress-fill"></div>
-          </div>
-
-          <p id="progressText">0% complete</p>
-
-          <div class="checklist">
-
-            <label>
-              <input type="checkbox" id="doneTools" disabled>
-              AI tools explored
-            </label>
-
-            <label>
-              <input type="checkbox" id="doneQuiz" disabled>
-              Self-test completed
-            </label>
-
-            <label>
-              <input type="checkbox" id="donePractice" disabled>
-              Prompt practice completed
-            </label>
-
-            <label>
-              <input type="checkbox" id="doneRecommend" disabled>
-              Recommendation generated
-            </label>
-
-          </div>
-
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
         </div>
 
-        <div class="card">
+        <p id="progressText">0% complete</p>
 
-          <h3>Instructions</h3>
-
-          <ul>
-            <li>Explore the AI tools section.</li>
-            <li>Complete the self-test.</li>
-            <li>Use the recommendation engine.</li>
-            <li>Practice AI prompting.</li>
-            <li>Export your results.</li>
-          </ul>
-
+        <div class="checklist">
+          <label><input type="checkbox" id="donePre" disabled> Pre-test completed</label>
+          <label><input type="checkbox" id="doneTools" disabled> AI tools explored</label>
+          <label><input type="checkbox" id="doneRecommend" disabled> Recommendation generated</label>
+          <label><input type="checkbox" id="doneQuiz" disabled> Self-test completed</label>
+          <label><input type="checkbox" id="donePractice" disabled> Prompt practice completed</label>
+          <label><input type="checkbox" id="donePost" disabled> Post-test completed</label>
         </div>
-
-      </div>
-
-    </section>
-
-    <!-- TOOLS -->
-
-    <section id="tools" class="page">
-
-      <div class="section-head">
-        <h2>AI Learning Tools</h2>
-        <p>Explore commonly used AI tools for education.</p>
-      </div>
-
-      <div id="toolsContainer" class="grid three"></div>
-
-    </section>
-
-    <!-- RECOMMENDER -->
-
-    <section id="recommendation" class="page">
-
-      <div class="section-head">
-
-        <h2>AI Tool Recommendation System</h2>
-
-        <p>
-          Select your academic task and learning preference.
-        </p>
-
       </div>
 
       <div class="card">
-
-        <label>
-          <strong>Academic Task</strong>
-        </label>
-
-        <select id="taskType">
-
-          <option value="">Select Task</option>
-
-          <option value="writing">Essay / Writing</option>
-
-          <option value="research">Research / Summarization</option>
-
-          <option value="presentation">Presentation / Design</option>
-
-          <option value="coding">Coding / Programming</option>
-
-          <option value="study">Reviewing / Studying</option>
-
-          <option value="brainstorm">Brainstorming</option>
-
-        </select>
-
-        <label style="margin-top:16px;">
-          <strong>Learning Style</strong>
-        </label>
-
-        <select id="learningStyle">
-
-          <option value="">Select Preference</option>
-
-          <option value="simple">Simple Explanations</option>
-
-          <option value="visual">Visual Learning</option>
-
-          <option value="interactive">Interactive Guidance</option>
-
-          <option value="technical">Technical / Detailed</option>
-
-        </select>
-
-        <div class="actions">
-
-          <button id="generateRecommendation" class="primary">
-            Generate Recommendation
-          </button>
-
-        </div>
-
-        <div id="recommendationResult" class="result hidden"></div>
-
+        <h3>Instructions</h3>
+        <ul>
+          <li>Complete the Pre-Test survey first.</li>
+          <li>Explore the AI Tools section.</li>
+          <li>Use the Recommendation Engine.</li>
+          <li>Complete the Self-Test and Prompt Practice.</li>
+          <li>Complete the Post-Test survey after using the system.</li>
+        </ul>
       </div>
+    </div>
+  </section>
 
-    </section>
+  <section id="pretest" class="page">
+    <div class="section-head">
+      <h2>Pre-Test Survey</h2>
+      <p>
+        Answer this before using the web application. The items use a 5-point Likert scale.
+      </p>
+    </div>
 
-    <!-- QUIZ -->
+    <form id="pretestForm"></form>
+  </section>
 
-    <section id="quiz" class="page">
+  <section id="tools" class="page">
+    <div class="section-head">
+      <h2>AI Learning Tools</h2>
+      <p>Explore commonly used AI tools for education.</p>
+    </div>
 
-      <div class="section-head">
+    <div id="toolsContainer" class="grid three"></div>
+  </section>
 
-        <h2>AI Literacy Self-Test</h2>
+  <section id="recommendation" class="page">
+    <div class="section-head">
+      <h2>AI Tool Recommendation System</h2>
+      <p>
+        Select your academic task and learning preference. The system will recommend suitable AI tools.
+      </p>
+    </div>
 
-        <p>
-          Evaluate your awareness and responsible AI usage knowledge.
-        </p>
+    <div class="card">
+      <label for="taskType"><strong>Academic Task</strong></label>
+      <select id="taskType">
+        <option value="">Select Task</option>
+        <option value="writing">Essay / Writing</option>
+        <option value="research">Research / Summarization</option>
+        <option value="presentation">Presentation / Design</option>
+        <option value="coding">Coding / Programming</option>
+        <option value="study">Reviewing / Studying</option>
+        <option value="brainstorm">Brainstorming</option>
+      </select>
 
-      </div>
+      <label for="learningStyle" class="field-label">
+        <strong>Learning Style</strong>
+      </label>
 
-      <div id="quizContainer"></div>
+      <select id="learningStyle">
+        <option value="">Select Preference</option>
+        <option value="simple">Simple Explanations</option>
+        <option value="visual">Visual Learning</option>
+        <option value="interactive">Interactive Guidance</option>
+        <option value="technical">Technical / Detailed</option>
+      </select>
 
       <div class="actions">
-
-        <button id="submitQuiz" class="primary">
-          Submit Self-Test
+        <button id="generateRecommendation" class="primary" type="button">
+          Generate Recommendation
         </button>
-
       </div>
 
-      <div id="quizResult" class="result hidden"></div>
+      <div id="recommendationResult" class="result hidden"></div>
+    </div>
+  </section>
 
-    </section>
+  <section id="quiz" class="page">
+    <div class="section-head">
+      <h2>AI Literacy Self-Test</h2>
+      <p>Evaluate your awareness and responsible AI usage knowledge.</p>
+    </div>
 
-    <!-- PRACTICE -->
+    <div id="quizContainer"></div>
 
-    <section id="practice" class="page">
+    <div class="actions">
+      <button id="submitQuiz" class="primary" type="button">
+        Submit Self-Test
+      </button>
+    </div>
 
-      <div class="section-head">
+    <div id="quizResult" class="result hidden"></div>
+  </section>
 
-        <h2>Prompt Practice</h2>
+  <section id="practice" class="page">
+    <div class="section-head">
+      <h2>Prompt Practice</h2>
+      <p>Practice writing effective AI prompts.</p>
+    </div>
 
-        <p>
-          Practice writing effective AI prompts.
-        </p>
+    <div class="card">
+      <label for="promptInput"><strong>Your Prompt</strong></label>
 
+      <textarea
+        id="promptInput"
+        rows="8"
+        placeholder="Example: Explain climate change in simple terms for Grade 11 students and provide two examples."
+      ></textarea>
+
+      <div class="actions">
+        <button id="checkPrompt" class="primary" type="button">
+          Check Prompt
+        </button>
+      </div>
+
+      <div id="promptResult" class="result hidden"></div>
+    </div>
+  </section>
+
+  <section id="posttest" class="page">
+    <div class="section-head">
+      <h2>Post-Test Survey</h2>
+      <p>
+        Answer this after using the web application. The items use the same Likert-scale variables.
+      </p>
+    </div>
+
+    <form id="posttestForm"></form>
+  </section>
+
+  <section id="export" class="page">
+    <div class="section-head">
+      <h2>Export Data</h2>
+      <p>Download your saved responses and activity records.</p>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Saved Data</h3>
+        <pre id="dataPreview"></pre>
       </div>
 
       <div class="card">
+        <h3>Actions</h3>
 
-        <label>
-          <strong>Your Prompt</strong>
-        </label>
-
-        <textarea
-          id="promptInput"
-          rows="8"
-          placeholder="Explain climate change in simple terms for Grade 11 students."
-        ></textarea>
-
-        <div class="actions">
-
-          <button id="checkPrompt" class="primary">
-            Check Prompt
+        <div class="actions vertical">
+          <button id="downloadJson" class="primary" type="button">
+            Download JSON
           </button>
 
+          <button id="resetData" class="danger" type="button">
+            Reset Data
+          </button>
         </div>
-
-        <div id="promptResult" class="result hidden"></div>
-
       </div>
-
-    </section>
-
-    <!-- EXPORT -->
-
-    <section id="export" class="page">
-
-      <div class="section-head">
-
-        <h2>Export Data</h2>
-
-        <p>
-          Download your saved records.
-        </p>
-
-      </div>
-
-      <div class="grid two">
-
-        <div class="card">
-
-          <h3>Saved Data</h3>
-
-          <pre id="dataPreview"></pre>
-
-        </div>
-
-        <div class="card">
-
-          <h3>Actions</h3>
-
-          <div class="actions vertical">
-
-            <button id="downloadJson" class="primary">
-              Download JSON
-            </button>
-
-            <button id="resetData" class="danger">
-              Reset Data
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer class="footer">
-
-    <div class="container">
-      AI Learning Tool Adoption and Recommendation System
     </div>
+  </section>
 
-  </footer>
+</main>
 
-  <script src="script.js"></script>
+<footer class="footer">
+  <div class="container">
+    AI Learning Tool Adoption and Recommendation System
+  </div>
+</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
